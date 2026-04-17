@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DBZ SPA - Personajes</title>
+</head>
+<body>
+
+    <header>
+        <h1>Dragon Ball Z - Explorador de Personajes</h1>
+    </header>
+
+    <section id="filtro">
+        <h2>Filtrar por raza</h2>
+
+        <label for="selectRaza">Selecciona una raza:</label>
+        <select id="selectRaza">
+            <option value="">-- Seleccionar --</option>
+            <option value="Saiyan">Saiyan</option>
+            <option value="Namekian">Namekian</option>
+            <option value="Human">Human</option>
+        </select>
+
+        <button id="btnMostrar">Mostrar</button>
+    </section>
+
+    <section id="tablaPersonajes">
+        <h2>Lista de personajes</h2>
+
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nombre</th>
+                    <th>Ki</th>
+                    <th>Género</th>
+                    <th>Imagen</th>
+                    <th>Detalles</th>
+                </tr>
+            </thead>
+            <tbody id="tbodyPersonajes">
+                <!-- Aquí se insertarán los datos dinámicamente -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- SECCIÓN 3: TRANSFORMACIONES -->
+    <section id="seccionTransformaciones" style="display: none;">
+        <h2>Transformaciones del personaje</h2>
+
+        <h3 id="nombrePersonaje"></h3>
+
+        <label for="selectTransformaciones">Selecciona una transformación:</label>
+        <select id="selectTransformaciones">
+            <option value="">-- Seleccionar --</option>
+        </select>
+
+        <button id="btnVerTransformacion">Mostrar transformación</button>
+
+        <div id="detalleTransformacion">
+            <img id="imgTransformacion" src="" alt="Imagen transformación" width="200">
+            <p id="descTransformacion"></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>Proyecto SPA - Dragon Ball API</p>
+    </footer>
+
+</body>
+</html>
