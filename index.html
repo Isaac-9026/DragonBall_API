@@ -45,7 +45,7 @@
         </table>
     </section>
 
-    <!-- SECCIÓN 3: TRANSFORMACIONES -->
+    <!-- SECCIÓN 3:TRANSFORMACIONES -->
     <section id="seccionTransformaciones" style="display: none;">
         <h2>Transformaciones del personaje</h2>
 
@@ -67,6 +67,66 @@
     <footer>
         <p>Proyecto SPA - Dragon Ball API</p>
     </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function(){
+
+    const selectRaza = document.getElementById("selectRaza");
+    const btnMostrar = document.getElementById("btnMostrar");
+    const tbody = document.getElementById("tbodyPersonajes");
+
+    let personajes = [];
+
+    //CARGAR DATOS UNA SOLA VEZ
+    fetch("https://dragonball-api.com/api/characters?limit=100")
+    .then(res => res.json())
+    .then(data => {
+        personajes = data.items || data;
+
+        //llenar select con razas únicas
+        const razas = [...new Set(personajes.map(p => p.race))];
+
+        selectRaza.innerHTML = '<option value="">-- Seleccionar raza --</option>';
+
+        razas.forEach(r => {
+            if (r) {
+                selectRaza.innerHTML += `<option value="${r}">${r}</option>`;
+            }
+        });
+    });
+
+    //MOSTRAR TABLA
+    btnMostrar.addEventListener("click", function(){
+
+        const raza = selectRaza.value;
+
+        if(!raza){
+            alert("Selecciona una raza");
+            return;
+        }
+
+        const filtrados = personajes.filter(p => p.race === raza);
+
+        tbody.innerHTML = "";
+
+        filtrados.forEach((p, i) => {
+            tbody.innerHTML += `
+                <tr>
+                    <td>${i + 1}</td>
+                    <td>${p.name}</td>
+                    <td>${p.ki}</td>
+                    <td>${p.gender}</td>
+                    <td><img src="${p.image}" width="80"></td>
+                    <td><button>Ver</button></td>
+                </tr>
+            `;
+        });
+
+    });
+
+});
+</script>
+
 
 </body>
 </html>
