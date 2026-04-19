@@ -112,7 +112,7 @@ function verDetalles(index) {
       document.getElementById("btnVerTransformacion").style.display = "inline";
 
       const select = document.getElementById("selectTransformaciones");
-      select.innerHTML = '<option value="">-- Seleccionar --</option>';
+      select.innerHTML = '<option value="">-- Seleccionar transformacion --</option>';
 
       if (!data.transformations || data.transformations.length === 0) {
         document.getElementById("descTransformacion").innerText =
