@@ -3,10 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <title>DBZ SPA - Personajes</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    
     <header>
       <h1>Dragon Ball Z - Explorador de Personajes</h1>
     </header>
@@ -14,19 +13,19 @@
     <section id="filtro">
       <h2>Filtrar por raza</h2>
 
-      <label>Selecciona una raza:</label>
-      <select id="selectRaza"></select>
-
-      <button id="btnMostrar">Mostrar</button>
+      <div class="filtro-row">
+        <label>Selecciona una raza:</label>
+        <select id="selectRaza"></select>
+        <button id="btnMostrar">Mostrar</button>
+      </div>
     </section>
 
     <section id="tablaPersonajes">
       <h2>Lista de personajes</h2>
 
-      <table border="1">
+      <table>
         <thead>
           <tr>
-            <th>#</th>
             <th>Nombre</th>
             <th>Ki</th>
             <th>Género</th>
@@ -41,14 +40,19 @@
     <section id="seccionTransformaciones" style="display: none">
       <h2 id="nombrePersonaje"></h2>
 
-      <img id="imgTransformacion" width="200" alt="Imagen del personaje" />
+      <div class="detalle-container">
+        <div class="detalle-img">
+          <img id="imgTransformacion" alt="Imagen personaje" />
+        </div>
 
-      <p id="descPersonaje"></p>
+        <div class="detalle-info">
+          <p id="descPersonaje"></p>
+          <p id="descTransformacion"></p>
 
-      <p id="descTransformacion"></p>
-
-      <select id="selectTransformaciones"></select>
-      <button id="btnVerTransformacion">Mostrar transformación</button>
+          <select id="selectTransformaciones"></select>
+          <button id="btnVerTransformacion">Ver transformación</button>
+        </div>
+      </div>
     </section>
 
     <footer>
